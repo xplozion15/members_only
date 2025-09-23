@@ -1,7 +1,6 @@
 const express = require("express");
 const indexRouter = express.Router();
 const indexController = require("../controllers/indexController");
-const pool = require("../db/pool");
 const passport = require("passport");
 
 //get req

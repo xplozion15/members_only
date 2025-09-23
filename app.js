@@ -8,6 +8,8 @@ const session = require("express-session");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const { indexRouter } = require("./routes/indexRouter");
+const bcrypt = require("bcryptjs");
+
 //create pool
 const pool = new Pool({
   connectionString: process.env.DB_CONNECTION_STRING,
@@ -19,10 +21,13 @@ app.set("view engine", "ejs");
 
 app.use(
   session({
-    secret: "cats",
+    store: new (require("connect-pg-simple")(session))({
+      pool: pool, // postgreSQL pool
+    }),
+    secret: "cat",
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days
+    cookie: { maxAge: 30 * 24 * 60 * 60 * 1000 }, // 30 days saves cookies
   }),
 );
 
@@ -30,7 +35,6 @@ app.use(passport.session()); // passport js
 app.use(express.urlencoded({ extended: false })); // for forms json data
 
 //passport js important functions are below
-
 passport.use(
   new LocalStrategy(async (username, password, done) => {
     try {
@@ -43,7 +47,9 @@ passport.use(
       if (!user) {
         return done(null, false, { message: "Incorrect username" });
       }
-      if (user.password !== password) {
+      const match = await bcrypt.compare(password, user.password);
+
+      if (!match) {
         return done(null, false, { message: "Incorrect password" });
       }
       return done(null, user);

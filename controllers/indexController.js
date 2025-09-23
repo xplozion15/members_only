@@ -1,4 +1,5 @@
 const pool = require("../db/pool");
+const bcrypt = require("bcryptjs");
 
 function showIndexPage(req, res) {
   res.render("indexPage");
@@ -9,14 +10,19 @@ function showSignupPage(req, res) {
 }
 
 function showLoginPage(req, res) {
-  res.render("logInPage", {});
+  if (req.user) {
+    res.redirect("/");
+  } else {
+    res.render("logInPage", {});
+  }
 }
 
 async function postUserToDb(req, res, next) {
   try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
     await pool.query(
       "INSERT INTO users (username,email,password) VALUES ($1,$2,$3)",
-      [req.body.username, req.body.email, req.body.password],
+      [req.body.username, req.body.email, hashedPassword],
     );
     res.redirect("/");
   } catch (error) {
