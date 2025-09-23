@@ -1,6 +1,6 @@
 const { Client } = require("pg");
-const dotenv = require('dotenv')
-dotenv.config()
+const dotenv = require("dotenv");
+dotenv.config();
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS users (
@@ -30,8 +30,6 @@ INSERT INTO letters (text,user_id)
     VALUES 
         ('hi im new here lol',1)
 `;
-
-
 
 async function main() {
   console.log("seeding...");

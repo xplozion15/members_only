@@ -1,0 +1,30 @@
+const express = require("express");
+const indexRouter = express.Router();
+const indexController = require("../controllers/indexController");
+const pool = require("../db/pool");
+const passport = require("passport");
+
+//get req
+indexRouter.get("/", indexController.showIndexPage);
+indexRouter.get("/sign-up", indexController.showSignupPage);
+indexRouter.get("/log-in", indexController.showLoginPage);
+//post req
+indexRouter.post("/sign-up", indexController.postUserToDb);
+indexRouter.post(
+  "/log-in",
+  passport.authenticate("local", {
+    successRedirect: "/",
+    failureRedirect: "/",
+  }),
+);
+
+indexRouter.post("/log-out", function (req, res, next) {
+  req.logout(function (err) {
+    if (err) {
+      return next(err);
+    }
+    res.redirect("/");
+  });
+});
+
+module.exports = { indexRouter };
