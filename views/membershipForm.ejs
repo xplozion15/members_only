@@ -8,21 +8,14 @@
 </head>
 
 <body>
-
-  <% if (currentUser) { %>
-    <h1>Welcome <%= currentUser.username %>!</h1>
-    <p>Verified member ✅</p>
-  <% } else {%>
-    <h1>Welcome!</h1>
- <% } %>
     
-    <% if (currentUser) { %>
-      <% if (currentUser.is_member === false)  { %>
-         <a href="/membership-form">Become a member</a>
-    <%  } %>
-  <% } %>
-
- 
+    <form action="/membership-form" method="post">
+        <div>
+            <label for="membership-password" >Enter membership password</label>
+            <input type="text" name="membership-password" id="membership-password"">
+        </div>
+        <button type="submit">JOIN MEMBERSHIP</button>
+    </form>
 
   <% if (!currentUser) { %>
     <a href="/log-in">log in</a>

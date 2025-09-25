@@ -1,5 +1,9 @@
 const pool = require("../db/pool");
 const bcrypt = require("bcryptjs");
+const dotenv = require("dotenv");
+const db = require("../db/queries")
+dotenv.config();
+
 
 function showIndexPage(req, res) {
   res.render("indexPage");
@@ -8,6 +12,11 @@ function showIndexPage(req, res) {
 function showSignupPage(req, res) {
   res.render("signUpPage", {});
 }
+
+function showMembershipForm(req,res) {
+  res.render("membershipForm",{});
+}
+
 
 function showLoginPage(req, res) {
   if (req.user) {
@@ -18,6 +27,7 @@ function showLoginPage(req, res) {
 }
 
 async function postUserToDb(req, res, next) {
+  
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     await pool.query(
@@ -30,4 +40,17 @@ async function postUserToDb(req, res, next) {
   }
 }
 
-module.exports = { showIndexPage, showSignupPage, postUserToDb, showLoginPage };
+async function giveMembership(req,res) {
+    const userId = req.user.id;
+    const userPasswordInput = req.body["membership-password"];
+    if(userPasswordInput === process.env.MEMBERSHIP_PASSWORD) {
+      await db.markMembershipInDb(userId);
+      res.redirect("/")
+    }
+    else {
+      res.redirect("/membership-form")
+    }
+}
+
+
+module.exports = { showIndexPage, showSignupPage, postUserToDb, showLoginPage ,showMembershipForm,giveMembership};
