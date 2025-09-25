@@ -7,7 +7,7 @@ const passport = require("passport");
 indexRouter.get("/", indexController.showIndexPage);
 indexRouter.get("/sign-up", indexController.showSignupPage);
 indexRouter.get("/log-in", indexController.showLoginPage);
-indexRouter.get("/membership-form",indexController.showMembershipForm)
+indexRouter.get("/membership-form", indexController.showMembershipForm);
 //post req
 indexRouter.post("/sign-up", indexController.postUserToDb);
 indexRouter.post(
@@ -26,6 +26,6 @@ indexRouter.post("/log-out", function (req, res, next) {
   });
 });
 
-indexRouter.post("/membership-form",indexController.giveMembership)
+indexRouter.post("/membership-form", indexController.giveMembership);
 
 module.exports = { indexRouter };

@@ -9,6 +9,7 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const { indexRouter } = require("./routes/indexRouter");
 const bcrypt = require("bcryptjs");
+const { letterRouter } = require("./routes/letterRouter");
 
 //create pool
 const pool = new Pool({
@@ -84,7 +85,7 @@ passport.deserializeUser(async (id, done) => {
 
 //routes
 app.use("/", indexRouter);
-
+app.use("/letter", letterRouter);
 app.listen(3000, (error) => {
   if (error) {
     throw error;

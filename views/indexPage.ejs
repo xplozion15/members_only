@@ -24,7 +24,7 @@
     <%  } %>
   <% } %>
 
- 
+        
 
   <% if (!currentUser) { %>
     <a href="/log-in">log in</a>
@@ -39,6 +39,34 @@
       <button>logout</button>
     </form>
   <% } %>
+
+  <!-- letters  display-->
+
+  <div class="letters-container">
+    
+    <h2>Letters</h2>
+    <a href="/letter/new">CREATE NEW LETTER</a>
+    <% letters.forEach((letter)=>{ %>
+      <div class="letter-instance">
+        <p class="author"><%= letter["username"] %></p>
+        <p class="letter-text"><%= letter["text"] %></p>
+        <p class="letter-time"><%=letter["timestamp"] %></p>
+        <% if (currentUser) { %>
+        <%  if(currentUser.is_admin ) { %>
+              <div class="letter-buttons">
+                <form  method="post" action="/letter/delete/<%= letter["id"] %>">
+
+            <button>DEL</button>
+          </form>
+        </div>
+        <%  } %>
+           
+       <% } %>
+      </div>
+   <% }) %>
+  </div>
+
+
 </body>
 
 </html>

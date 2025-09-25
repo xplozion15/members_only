@@ -4,8 +4,10 @@ const dotenv = require("dotenv");
 const db = require("../db/queries");
 dotenv.config();
 
-function showIndexPage(req, res) {
-  res.render("indexPage");
+async function showIndexPage(req, res) {
+  const letters = await db.getLetters();
+
+  res.render("indexPage", { letters: letters });
 }
 
 function showSignupPage(req, res) {
@@ -25,9 +27,7 @@ function showLoginPage(req, res) {
 }
 
 async function postUserToDb(req, res, next) {
-
   const isUserAdmin = req.body["is_admin"]; // on or off expected value from the req body through the form
-
   const userInputAdminPassword = req.body["admin-password"];
   const adminPassword = process.env.ADMIN_PASSWORD;
   const doesAdminPasswordMatch = userInputAdminPassword === adminPassword;
@@ -35,23 +35,20 @@ async function postUserToDb(req, res, next) {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
     if (isUserAdmin === undefined) {
-  
-        await pool.query(
-          "INSERT INTO users (username,email,password) VALUES ($1,$2,$3)",
-          [req.body.username, req.body.email, hashedPassword],
-        );
-        res.redirect("/");
-    }
-    else if (isUserAdmin === "on") {
+      await pool.query(
+        "INSERT INTO users (username,email,password) VALUES ($1,$2,$3)",
+        [req.body.username, req.body.email, hashedPassword],
+      );
+      res.redirect("/");
+    } else if (isUserAdmin === "on") {
       if (doesAdminPasswordMatch) {
         await pool.query(
           "INSERT INTO users (username,email,password,is_admin) VALUES ($1,$2,$3,$4)",
-          [req.body.username, req.body.email, hashedPassword,"TRUE"],
+          [req.body.username, req.body.email, hashedPassword, "TRUE"],
         );
         res.redirect("/");
-      }
-      else {
-        res.send("wrong password bruh?")
+      } else {
+        res.send("wrong password bruh?");
       }
     }
   } catch (error) {
