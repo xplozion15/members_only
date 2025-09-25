@@ -13,60 +13,62 @@
     <h1>Welcome <%= currentUser.username %>!</h1>
     <% if (currentUser.is_member) { %>
       <p>Verified member ✅</p>
-  <%  } %>
-  <% } else {%>
+    <% } %>
+  <% } else { %>
     <h1>Welcome!</h1>
- <% } %>
-    
-    <% if (currentUser) { %>
-      <% if (currentUser.is_member === false)  { %>
-         <a href="/membership-form">Become a member</a>
-    <%  } %>
   <% } %>
 
-        
-
-  <% if (!currentUser) { %>
-    <a href="/log-in">log in</a>
+  <% if (currentUser && currentUser.is_member === false) { %>
+    <a href="/membership-form">Become a member</a>
   <% } %>
 
   <% if (!currentUser) { %>
-    <a href="/sign-up">sign-up</a>
+    <a href="/log-in">Log in</a>
+    <a href="/sign-up">Sign up</a>
   <% } %>
 
   <% if (currentUser) { %>
     <form action="/log-out" method="post">
-      <button>logout</button>
+      <button>Logout</button>
     </form>
   <% } %>
 
-  <!-- letters  display-->
-
+  <!-- Letters display -->
   <div class="letters-container">
-    
     <h2>Letters</h2>
-    <a href="/letter/new">CREATE NEW LETTER</a>
-    <% letters.forEach((letter)=>{ %>
-      <div class="letter-instance">
-        <p class="author"><%= letter["username"] %></p>
-        <p class="letter-text"><%= letter["text"] %></p>
-        <p class="letter-time"><%=letter["timestamp"] %></p>
-        <% if (currentUser) { %>
-        <%  if(currentUser.is_admin ) { %>
-              <div class="letter-buttons">
-                <form  method="post" action="/letter/delete/<%= letter["id"] %>">
+    
+    <% if (currentUser) { %>
+      <a href="/letter/new">CREATE NEW LETTER</a>
+   <% } %>
 
-            <button>DEL</button>
-          </form>
-        </div>
-        <%  } %>
-           
-       <% } %>
+
+    <% letters.forEach((letter) => { %>
+      <div class="letter-instance">
+        <% if (currentUser) { %>
+          <p class="author"><%= letter["username"] %></p>
+        <% } else { %>
+          <p class="author">Anonymous user</p>
+        <% } %>
+
+        <p class="letter-text"><%= letter["text"] %></p>
+
+        <% if (currentUser) { %>
+         <p class="letter-time"><%= letter["timestamp"] %></p>
+        <% } else { %>
+           <p class="letter-time">Time is an illusion</p>
+        <% } %>
+        
+
+        <% if (currentUser && currentUser.is_admin) { %>
+          <div class="letter-buttons">
+            <form method="post" action="/letter/delete/<%= letter["id"] %>">
+              <button>DEL</button>
+            </form>
+          </div>
+        <% } %>
       </div>
-   <% }) %>
+    <% }) %>
   </div>
 
-
 </body>
-
 </html>
