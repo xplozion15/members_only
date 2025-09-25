@@ -11,7 +11,9 @@
 
   <% if (currentUser) { %>
     <h1>Welcome <%= currentUser.username %>!</h1>
-    <p>Verified member ✅</p>
+    <% if (currentUser.is_member) { %>
+      <p>Verified member ✅</p>
+  <%  } %>
   <% } else {%>
     <h1>Welcome!</h1>
  <% } %>
