@@ -1,0 +1,151 @@
+/* 1. Use a more-intuitive box-sizing model */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* 2. Remove default margin */
+* {
+  margin: 0;
+}
+
+/* 3. Enable keyword animations */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+  /* 4. Add accessible line-height */
+  line-height: 1.5;
+  /* 5. Improve text rendering */
+  -webkit-font-smoothing: antialiased;
+}
+
+/* 6. Improve media defaults */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* 7. Inherit fonts for form controls */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* 8. Avoid text overflows */
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* 9. Improve line wrapping */
+p {
+  text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+  text-wrap: balance;
+}
+
+/*
+  10. Create a root stacking context
+*/
+#root, #__next {
+  isolation: isolate;
+}
+
+
+:root {
+    /* colors */
+    --primary-color: cornflowerblue;
+    --text-color: white;
+    --secondary-color:white;
+    --third-color:black;
+
+
+}
+
+
+@font-face {
+    font-family: 'poppins';
+    src: url("/fonts/poppins.ttf");
+}
+
+body {
+     font-family: 'poppins','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: rgb(24, 23, 23);
+color: var(--text-color)
+}   
+
+
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin: 0.6rem;
+    padding: 0.5rem;
+}
+
+
+
+nav li {
+    
+    text-decoration: none;
+}
+
+
+
+.logo a {
+     font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 800;
+}
+
+.logo a svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+svg {
+    display: inline-block;
+    vertical-align: middle;
+}
+nav a {
+     font-size: clamp(1.2rem, 2.6vw, 1.4rem);
+    font-weight: 400;
+    color: var(--secondary-color);
+    text-decoration: none;
+    transition: color 250ms ;
+
+
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color:var(--primary-color);
+}
+
+.navbar-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.logout-button {
+    cursor: pointer;
+    border-radius: 0.5rem;
+    width: 7rem;
+    height: 2.5rem;
+    border: 2px solid var(--third-color);
+    font-weight: 600;
+    transition: border-color 250ms, color 250ms;
+}
+
+
+
+.logout-button:hover {
+    border: 2px solid var(--primary-color);
+    background-color: var(--primary-color);
+    /* color: var(--secondary-color); */
+}

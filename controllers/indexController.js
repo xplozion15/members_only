@@ -4,10 +4,16 @@ const dotenv = require("dotenv");
 const db = require("../db/queries");
 dotenv.config();
 
+const navbarLinks = [
+  { href: "/", text: "Log in" },
+  { href: "/", text: "Sign up" },
+  { href: "/", text: "Log out" },
+];
+
 async function showIndexPage(req, res) {
   const letters = await db.getLetters();
 
-  res.render("indexPage", { letters: letters });
+  res.render("indexPage", { letters: letters , navbarLinks:navbarLinks});
 }
 
 function showSignupPage(req, res) {

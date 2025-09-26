@@ -5,10 +5,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>members_only</title>
+<link rel="stylesheet" href="/styles.css">
+
+
 </head>
 
 <body>
-
+  
+  <%- include('navbar', {navbarLinks:navbarLinks}) %>
   <% if (currentUser) { %>
     <h1>Welcome <%= currentUser.username %>!</h1>
     <% if (currentUser.is_member) { %>
@@ -22,16 +26,7 @@
     <a href="/membership-form">Become a member</a>
   <% } %>
 
-  <% if (!currentUser) { %>
-    <a href="/log-in">Log in</a>
-    <a href="/sign-up">Sign up</a>
-  <% } %>
-
-  <% if (currentUser) { %>
-    <form action="/log-out" method="post">
-      <button>Logout</button>
-    </form>
-  <% } %>
+  
 
   <!-- Letters display -->
   <div class="letters-container">
@@ -69,6 +64,5 @@
       </div>
     <% }) %>
   </div>
-
 </body>
 </html>

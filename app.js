@@ -20,6 +20,10 @@ const app = express();
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");
 
+// for css
+const assetsPath = path.join(__dirname, "public");
+app.use(express.static(assetsPath));
+
 app.use(
   session({
     store: new (require("connect-pg-simple")(session))({
