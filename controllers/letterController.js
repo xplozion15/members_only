@@ -1,7 +1,12 @@
 const db = require("../db/queries");
+const navbarLinks = [
+  { href: "/", text: "Log in" },
+  { href: "/", text: "Sign up" },
+  { href: "/", text: "Log out" },
+];
 
 function showNewLetterForm(req, res) {
-  res.render("createNewLetter");
+  res.render("createNewLetter",{navbarLinks:navbarLinks});
 }
 
 async function handleLetterPost(req, res) {

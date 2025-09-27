@@ -17,18 +17,18 @@ async function showIndexPage(req, res) {
 }
 
 function showSignupPage(req, res) {
-  res.render("signUpPage", {});
+  res.render("signUpPage", {navbarLinks:navbarLinks});
 }
 
 function showMembershipForm(req, res) {
-  res.render("membershipForm", {});
+  res.render("membershipForm", {navbarLinks:navbarLinks});
 }
 
 function showLoginPage(req, res) {
   if (req.user) {
     res.redirect("/");
   } else {
-    res.render("logInPage", {});
+    res.render("logInPage", {navbarLinks:navbarLinks});
   }
 }
 

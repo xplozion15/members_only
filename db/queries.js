@@ -8,7 +8,7 @@ async function markMembershipInDb(userId) {
 
 async function getLetters() {
   const { rows } = await pool.query(
-    "SELECT * FROM users INNER JOIN letters ON users.id = letters.user_id;",
+    "SELECT * FROM users INNER JOIN letters ON users.id = letters.user_id ORDER BY TIMESTAMP DESC;",
   );
   return rows;
 }
