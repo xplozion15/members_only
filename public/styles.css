@@ -62,7 +62,8 @@ h1, h2, h3, h4, h5, h6 {
     --third-color:rgb(26, 24, 24);
     --verified-color:green;
     --admin-color:goldenrod;
-    --fourth-color:rgb(46, 45, 45);
+    --fourth-color:rgb(41, 39, 39);
+    --fifth-color: rgb(60, 58, 58);
 
 
 }
@@ -272,4 +273,59 @@ nav a:hover {
   font-weight: 400;
   border-radius: 0.5rem;
   border: 2px solid var(--secondary-color);
+ }
+
+
+ .login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--fourth-color);
+  width: 33%;
+  margin: auto;
+  margin-top: 5rem;
+  height: 25rem;
+  padding: 1rem;
+  border-radius: 2rem;
+  
+ }
+
+ .form-div {
+  gap: 0.3rem;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  width: 70%;
+ }
+
+ input {
+  height: 3rem;
+  border-radius: 0.8rem;
+  border: 2px solid var(--fifth-color);
+  background-color: var(--fifth-color);
+  color: var(--text-color);
+  width: 100%;
+  margin: auto;
+
+  
+ }
+
+ label {
+  font-weight: 400;
+ }
+
+ .form-sign-up-link {
+  color: var(--primary-color);
+ }
+
+ .login-form-text {
+  font-weight: 500;
+ }
+
+ .login-button {
+  width: 70%;
+  height: 14%;
+  border-radius: 1rem;
+  
  }
