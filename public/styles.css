@@ -329,3 +329,90 @@ nav a:hover {
   border-radius: 1rem;
   
  }
+
+
+ .create-letter-form {
+    display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--fourth-color);
+  width: 36%;
+  margin: auto;
+  margin-top: 5rem;
+  height: 20rem;
+  padding: 1rem;
+  border-radius: 2rem;
+ }
+
+
+.send-letter-button {
+  width: 70%;
+  height: 18%;
+  border-radius: 1rem;
+  cursor: pointer;
+}
+
+.create-letter-form-div {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  
+}
+
+
+
+.text {
+  color: var(--text-color);
+  resize: none;
+  height: 7rem;
+  width: 100%;
+  border-radius: 1rem;
+  background-color: var(--fifth-color);
+  border : 2px solid var(--fifth-color);
+
+}
+
+.membership-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+  margin: auto;
+  padding: 1rem;
+  border-radius: 1rem;
+  height: 17rem;
+  background-color: var(--fourth-color);
+  margin-top: 7rem;
+}
+
+
+.new-letter-heading {
+  font-weight: 400;
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+}
+
+.membership-form-heading {
+  font-weight: 400;
+  font-size: clamp(1.3rem, 3vw, 1.5rem);
+}
+
+#membership-password {
+  background-color: var(--fifth-color);
+}
+
+.membership-join-button {
+  height: 25%;
+  width: 20rem;
+  font-weight: 400;
+  border-radius: 1rem;
+}
+
+.membership-form-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 20rem;
+}

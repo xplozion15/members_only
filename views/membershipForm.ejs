@@ -2,35 +2,29 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>members_only</title>
-  <link rel="stylesheet" href="/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>members_only</title>
+    <link rel="stylesheet" href="/styles.css">
 </head>
 
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <form action="/membership-form" method="post">
-        <div>
-            <label for="membership-password" >Enter membership password</label>
-            <input type="text" name="membership-password" id="membership-password"">
-        </div>
-        <button type="submit">JOIN MEMBERSHIP</button>
-    </form>
+        <form action="/membership-form" method="post" class="membership-form">
+            <h2 class="membership-form-heading">JOIN MEMBERSHIP</h2>
+            <div class="membership-form-div">
+                <label for="membership-password">Membership password</label>
+                <input type="text" name="membership-password" id="membership-password">
+            </div>
+            <button type="submit" class="membership-join-button"><svg xmlns="http://www.w3.org/2000/svg" width="24"
+                    height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-icon lucide-key">
+                    <path d="m15.5 7.5 2.3 2.3a1 1 0 0 0 1.4 0l2.1-2.1a1 1 0 0 0 0-1.4L19 4" />
+                    <path d="m21 2-9.6 9.6" />
+                    <circle cx="7.5" cy="15.5" r="5.5" />
+                </svg> JOIN MEMBERSHIP</button>
+        </form>
 
-  <% if (!currentUser) { %>
-    <a href="/log-in">log in</a>
-  <% } %>
-
-  <% if (!currentUser) { %>
-    <a href="/sign-up">sign-up</a>
-  <% } %>
-
-  <% if (currentUser) { %>
-    <form action="/log-out" method="post">
-      <button>logout</button>
-    </form>
-  <% } %>
 </body>
 
 </html>
