@@ -10,7 +10,7 @@
 
 <body>
   <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <form action="/sign-up" method="post">
+    <form action="/sign-up" method="post" class="signup-form">
       <h1 class="sign-up-heading">SIGN UP</h1>
       <div class="signup-form-div">
         <label for="username">username *</label>
@@ -30,7 +30,7 @@
         <input type="admin-password" id="admin-password" name="admin-password" />
       </div>
 
-      <div class="signup-form-div">
+      <div class="signup-form-div is-admin-div">
         <label for="is-admin">Is admin?</label>
         <input type="checkbox" name="is_admin" id="is_admin" />
       </div>

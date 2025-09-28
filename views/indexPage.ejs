@@ -103,9 +103,8 @@
                 </p>
 
                 <% if (currentUser) { %>
-                  <p class="letter-time">
-                    <%= letter["timestamp"] %>
-                  </p>
+                  <p class="letter-time" data-timestamp="<%= letter['timestamp'] %>"></p>
+
                   <% } else { %>
                     <p class="letter-time">Time is an illusion</p>
                     <% } %>
@@ -113,7 +112,7 @@
 
                       <% if (currentUser && currentUser.is_admin) { %>
                         <div class="letter-buttons">
-                          <form method="post" action="/letter/delete/<%= letter["id"] %>">
+                          <form method="post" action="/letter/delete/<%= letter[" id"] %>">
                             <button class="del-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                 viewBox="0 0 24 24" fill="none" stroke="#f00a0a" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash">
@@ -127,6 +126,28 @@
         </div>
         <% }) %>
     </div>
+  <script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.querySelectorAll(".letter-time").forEach(el => {
+    const rawTimestamp = el.dataset.timestamp;
+    if (!rawTimestamp) return;
+
+    const date = new Date(rawTimestamp);
+
+    el.textContent = date.toLocaleString("en-US", {
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      timeZoneName:"longGeneric",
+    });
+  });
+});
+</script>
+
+
 </body>
 
 </html>

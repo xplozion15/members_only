@@ -416,3 +416,44 @@ nav a:hover {
   gap: 0.5rem;
   width: 20rem;
 }
+
+
+.sign-up-heading {
+  font-weight: 400;
+}
+
+.signup-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  margin: auto;
+  padding: 1rem;
+  background-color: var(--fourth-color);
+  gap: 1rem;
+  border-radius: 1rem;
+}
+
+.signup-form input {
+  background-color: var(--fifth-color);
+  
+}
+
+.signup-form-div {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 90%;
+}
+
+.is-admin-div {
+  justify-content: flex-start;
+  align-items: flex-start;
+  border: 2px solid peachpuff;
+}
+
+.signup-button {
+  width: 50%;
+  height: 3.5rem;
+  border-radius: 1rem;
+}
