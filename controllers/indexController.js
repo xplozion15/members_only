@@ -3,13 +3,17 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const db = require("../db/queries");
 dotenv.config();
+const { body, validationResult } = require("express-validator");
+
+
+
 
 const navbarLinks = [
   { href: "/", text: "Log in" },
   { href: "/", text: "Sign up" },
   { href: "/", text: "Log out" },
 ];
-
+  
 async function showIndexPage(req, res) {
   const letters = await db.getLetters();
 
@@ -62,6 +66,8 @@ async function postUserToDb(req, res, next) {
   }
 }
 
+
+
 async function giveMembership(req, res) {
   const userId = req.user.id;
   const userPasswordInput = req.body["membership-password"];
@@ -80,4 +86,5 @@ module.exports = {
   showLoginPage,
   showMembershipForm,
   giveMembership,
+  navbarLinks
 };

@@ -24,9 +24,16 @@ async function deleteLetterFromDb(letterId) {
   await pool.query("DELETE FROM letters WHERE id = $1", [letterId]);
 }
 
+
+async function findUsername(value) {
+    const {rows} = await pool.query("SELECT * FROM users WHERE username = $1",[value])
+    return rows;
+}
+
 module.exports = {
   markMembershipInDb,
   getLetters,
   postLetterToDb,
   deleteLetterFromDb,
+  findUsername
 };
