@@ -17,18 +17,10 @@ indexRouter.post("/sign-up", indexController.postUserToDb);
 
 indexRouter.post(
   "/log-in",
-  validateUserLogin,
-  async (req,res,next) =>{
-    const errors =  validationResult(req); 
-  
-      if(!errors.isEmpty()) {
-        return res.render("logInPage",{errors:errors.array(),navbarLinks:navbarLinks})
-      }
-      next();
-    },
   passport.authenticate("local", {
     successRedirect: "/",
     failureRedirect: "/log-in",
+    failureMessage:true,
   }),
 );
 

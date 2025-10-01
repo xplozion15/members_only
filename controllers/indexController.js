@@ -29,10 +29,13 @@ function showMembershipForm(req, res) {
 }
 
 function showLoginPage(req, res) {
+  
   if (req.user) {
     res.redirect("/");
   } else {
+    res.locals.errors = req.session.messages;
     res.render("logInPage", {navbarLinks:navbarLinks});
+    req.session.messages = undefined
   }
 }
 
@@ -86,5 +89,5 @@ module.exports = {
   showLoginPage,
   showMembershipForm,
   giveMembership,
-  navbarLinks
+  navbarLinks,
 };

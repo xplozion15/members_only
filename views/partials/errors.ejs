@@ -2,7 +2,14 @@
 <% if (locals.errors) {%>
   <ul>
     <% errors.forEach(function(error) { %>
-      <li><%= error.msg %></li>
+        <!-- if error is from express validator  -->
+     <% if(error.msg) {  %>    
+        <li><%= error.msg %></li>
+        <!-- if error is from the passport js  -->
+     <% } else { %>
+        <li><%= error %></li>
+   <%  } %>
+        
     <% }); %>
   </ul>
 <% } %>
