@@ -24,10 +24,25 @@ async function deleteLetterFromDb(letterId) {
   await pool.query("DELETE FROM letters WHERE id = $1", [letterId]);
 }
 
-
 async function findUsername(value) {
-    const {rows} = await pool.query("SELECT * FROM users WHERE username = $1",[value])
-    return rows;
+  const { rows } = await pool.query("SELECT * FROM users WHERE username = $1", [
+    value,
+  ]);
+  return rows;
+}
+
+async function insertUser(username, email, hashedPassword) {
+  await pool.query(
+    "INSERT INTO users (username,email,password) VALUES ($1,$2,$3)",
+    [username, email, hashedPassword],
+  );
+}
+
+async function insertAdminUser(username, email, hashedPassword) {
+  await pool.query(
+    "INSERT INTO users (username,email,password,is_admin) VALUES ($1,$2,$3,$4)",
+    [username, email, hashedPassword, true],
+  );
 }
 
 module.exports = {
@@ -35,5 +50,7 @@ module.exports = {
   getLetters,
   postLetterToDb,
   deleteLetterFromDb,
-  findUsername
+  findUsername,
+  insertUser,
+  insertAdminUser,
 };

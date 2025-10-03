@@ -3,87 +3,76 @@ const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const db = require("../db/queries");
 dotenv.config();
-const { body, validationResult } = require("express-validator");
-const e = require("connect-flash");
-
-
-
+const { validationResult } = require("express-validator");
 
 const navbarLinks = [
   { href: "/", text: "Log in" },
   { href: "/", text: "Sign up" },
   { href: "/", text: "Log out" },
 ];
-  
+
 async function showIndexPage(req, res) {
   const letters = await db.getLetters();
 
-  res.render("indexPage", { letters: letters , navbarLinks:navbarLinks});
+  res.render("indexPage", { letters: letters, navbarLinks: navbarLinks });
 }
 
 function showSignupPage(req, res) {
-  
-  res.render("signUpPage", {navbarLinks:navbarLinks});
+  res.render("signUpPage", { navbarLinks: navbarLinks });
 }
 
 function showMembershipForm(req, res) {
-  res.render("membershipForm", {navbarLinks:navbarLinks});
+  res.render("membershipForm", { navbarLinks: navbarLinks });
 }
 
 function showLoginPage(req, res) {
-  
   if (req.user) {
     res.redirect("/");
   } else {
     res.locals.errors = req.session.messages;
-    res.render("logInPage", {navbarLinks:navbarLinks});
-    req.session.messages = undefined
+    res.render("logInPage", { navbarLinks: navbarLinks });
+    req.session.messages = undefined;
   }
 }
 
 async function postUserToDb(req, res, next) {
   const result = validationResult(req);
-  
-  const isUserAdmin = req.body["is_admin"]; // on or off expected value from the req body through the form
+
+  const isUserAdmin = req.body["is-admin"]; // on or off expected value from the req body through the form
   const userInputAdminPassword = req.body["admin-password"];
   const adminPassword = process.env.ADMIN_PASSWORD;
   const doesAdminPasswordMatch = userInputAdminPassword === adminPassword;
 
-  if(result.isEmpty()) {
-     
-  try {
-    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+  if (result.isEmpty()) {
+    try {
+      const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
-    if (isUserAdmin === undefined) {
-      await pool.query(
-        "INSERT INTO users (username,email,password) VALUES ($1,$2,$3)",
-        [req.body.username, req.body.email, hashedPassword],
-      );
-      res.redirect("/");
-    } else if (isUserAdmin === "on") {
-      if (doesAdminPasswordMatch) {
-        await pool.query(
-          "INSERT INTO users (username,email,password,is_admin) VALUES ($1,$2,$3,$4)",
-          [req.body.username, req.body.email, hashedPassword, "TRUE"],
-        );
+      if (isUserAdmin === undefined) {
+        await db.insertUser(req.body.username, req.body.email, hashedPassword);
         res.redirect("/");
-      } else {
-        res.send("wrong password bruh?");
+      } else if (isUserAdmin === "on") {
+        if (doesAdminPasswordMatch) {
+          await db.insertAdminUser(
+            req.body.username,
+            req.body.email,
+            hashedPassword,
+          );
+          res.redirect("/");
+        }
+        // else {
+        //   res.send("wrong admin password bruh?");
+        // }
       }
+    } catch (error) {
+      return next(error);
     }
-  } catch (error) {
-    return next(error);
+  } else {
+    res.render("signUpPage", {
+      navbarLinks: navbarLinks,
+      errors: result.array(),
+    });
   }
-  }
-  else {
-    res.render("signUpPage",{navbarLinks:navbarLinks,errors:result.array()})
-  }
-
-
-
 }
-
-
 
 async function giveMembership(req, res) {
   const userId = req.user.id;
@@ -92,9 +81,8 @@ async function giveMembership(req, res) {
     await db.markMembershipInDb(userId);
     res.redirect("/");
   } else {
-
     res.locals.errors = ["Invalid membership password"];
-    res.render("membershipForm", {navbarLinks:navbarLinks});
+    res.render("membershipForm", { navbarLinks: navbarLinks });
   }
 }
 

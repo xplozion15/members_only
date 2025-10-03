@@ -4,7 +4,7 @@ const navbarLinks = [
   { href: "/", text: "Sign up" },
   { href: "/", text: "Log out" },
 ];
-const {  validationResult } = require("express-validator");
+const { validationResult } = require("express-validator");
 
 function showNewLetterForm(req, res) {
   res.render("createNewLetter", { navbarLinks: navbarLinks });
@@ -20,7 +20,10 @@ async function handleLetterPost(req, res) {
     await db.postLetterToDb(letterText, userId);
     res.redirect("/");
   } else {
-    res.render("createNewLetter", { navbarLinks: navbarLinks ,errors:result.array()});
+    res.render("createNewLetter", {
+      navbarLinks: navbarLinks,
+      errors: result.array(),
+    });
   }
 }
 

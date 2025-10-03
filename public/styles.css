@@ -1,5 +1,9 @@
+/* css reset  */
+
 /* 1. Use a more-intuitive box-sizing model */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,8 +19,6 @@
   }
 }
 
-
-
 body {
   /* 4. Add accessible line-height */
   line-height: 1.5;
@@ -25,18 +27,31 @@ body {
 }
 
 /* 6. Improve media defaults */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* 7. Inherit fonts for form controls */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* 8. Avoid text overflows */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -44,194 +59,182 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 /*
   10. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
-
 :root {
-    /* colors */
-    --primary-color: cornflowerblue;
-    --text-color: white;
-    --secondary-color:white;
-    --third-color:rgb(26, 24, 24);
-    --verified-color:green;
-    --admin-color:goldenrod;
-    --fourth-color:rgb(41, 39, 39);
-    --fifth-color: rgb(60, 58, 58);
-
-
+  /* colors */
+  --primary-color: cornflowerblue;
+  --text-color: white;
+  --secondary-color: white;
+  --third-color: rgb(26, 24, 24);
+  --verified-color: green;
+  --admin-color: goldenrod;
+  --fourth-color: rgb(41, 39, 39);
+  --fifth-color: rgb(60, 58, 58);
 }
 
-
 @font-face {
-    font-family: 'poppins';
-    src: url("/fonts/poppins.ttf");
+  font-family: "poppins";
+  src: url("/fonts/poppins.ttf");
 }
 
 body {
-     font-family: 'poppins','Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: rgb(24, 23, 23);
-color: var(--text-color);
-}   
-
-
+  font-family: "poppins", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: rgb(24, 23, 23);
+  color: var(--text-color);
+}
 
 nav ul {
-    list-style-type: none;
-    display: flex;
-    align-items: center;
-    justify-content:space-between;
-    margin: 0.6rem;
-    padding: 0.5rem;
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0.6rem;
+  padding: 0.5rem;
 }
-
-
 
 nav li {
-    
-    text-decoration: none;
+  text-decoration: none;
 }
 
-
-
 .logo a {
-     font-size: clamp(1.6rem, 3.2vw, 2.4rem);
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 800;
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: 800;
 }
 
 .logo a svg {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 svg {
-    display: inline-block;
-    vertical-align: middle;
+  display: inline-block;
+  vertical-align: middle;
 }
 
 nav a {
-     font-size: clamp(1.2rem, 2.6vw, 1.4rem);
-    font-weight: 400;
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: color 250ms ;
-
-
+  font-size: clamp(1.2rem, 2.6vw, 1.4rem);
+  font-weight: 400;
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 250ms;
 }
 
 nav a:hover {
-    text-decoration: underline;
-    color:var(--primary-color);
+  text-decoration: underline;
+  color: var(--primary-color);
 }
 
 .navbar-buttons {
-    display: flex;
-    gap: 1rem;
+  display: flex;
+  gap: 1rem;
 }
 
 .logout-button {
-    cursor: pointer;
-    border-radius: 0.5rem;
-    width: 7rem;
-    height: 2.5rem;
-    border: 2px solid var(--third-color);
-    font-weight: 600;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  width: 7rem;
+  height: 2.5rem;
+  border: 2px solid var(--third-color);
+  font-weight: 600;
 }
 
-
-
-
 .welcome-heading {
-    margin: 0.6rem;
+  margin: 0.6rem;
 }
 
 .username {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-
 .verified-badge {
-    width: 7rem;
-    height: fit-content;
-    padding: 0.3rem;
-    background-color: var(--verified-color);
-    color: var(--text-color);
-    border-radius: 0.5rem;
-    display: flex;           
-    align-items: center;    
-    justify-content: center;
-    gap: 0.3rem;             
+  width: 7rem;
+  height: fit-content;
+  padding: 0.3rem;
+  background-color: var(--verified-color);
+  color: var(--text-color);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
 .admin-badge {
-    width: 7rem;
-    height: fit-content;
-    padding: 0.3rem;
-    background-color: var(--admin-color);
-    color: var(--text-color);
-    border-radius: 0.5rem;
-    display: flex;           
-    align-items: center;    
-    justify-content: center;
-    gap: 0.3rem;             
+  width: 7rem;
+  height: fit-content;
+  padding: 0.3rem;
+  background-color: var(--admin-color);
+  color: var(--text-color);
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
 .welcome-div {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .heading-and-buttons-hero-section {
-    width: 100%;
-    margin: auto;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    margin-top: 3.5rem;
+  width: 100%;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 3.5rem;
 }
 
 .main-heading {
-    font-size: clamp(3rem, 4vw, 3.5rem);
-    font-weight: 800;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-
+  font-size: clamp(3rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 .secondary-heading {
   font-size: clamp(1.7rem, 3.2vw, 1.7rem);
-      margin-bottom: 2.5rem;
-      font-weight: 400;
-      opacity: 0.9;
+  margin-bottom: 2.5rem;
+  font-weight: 400;
+  opacity: 0.9;
 }
 
-.create-letter-button,.join-membership-button {
-    text-decoration: none;
-    background-color: var(--primary-color);
-    padding: 1rem;
-    
-    color: var(--text-color);
-    border-radius: 1rem;
+.create-letter-button,
+.join-membership-button {
+  text-decoration: none;
+  background-color: var(--primary-color);
+  padding: 1rem;
+
+  color: var(--text-color);
+  border-radius: 1rem;
 }
 
- .hero-buttons {
-    display: flex;
-    gap: 1rem;
- }
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+}
 
-
- .letter-instance {
+.letter-instance {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -242,43 +245,41 @@ nav a:hover {
   border-radius: 1.5rem;
   padding: 1rem;
   height: 10rem;
- }
+}
 
-
- .author {
+.author {
   text-align: center;
   color: var(--primary-color);
   font-weight: 600;
   font-size: clamp(2rem, 3vw, 2.2rem);
- }
+}
 
- .letter-text {
+.letter-text {
   text-align: center;
   font-weight: 100;
   font-size: clamp(1.2rem, 2.5vw, 1.2rem);
- }
+}
 
- .letter-time {
+.letter-time {
   text-align: center;
   font-size: clamp(0.7rem, 1.5vw, 0.8rem);
   opacity: 0.8;
- }
+}
 
- .letter-buttons {
+.letter-buttons {
   position: absolute;
   right: 1.5%;
   bottom: 73%;
- }
+}
 
- .del-button {
+.del-button {
   cursor: pointer;
   font-weight: 400;
   border-radius: 0.5rem;
   border: 2px solid var(--secondary-color);
- }
+}
 
-
- .login-form {
+.login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -290,18 +291,17 @@ nav a:hover {
   height: 25rem;
   padding: 1rem;
   border-radius: 2rem;
-  
- }
+}
 
- .form-div {
+.form-div {
   gap: 0.3rem;
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
   width: 70%;
- }
+}
 
- input {
+input {
   height: 3rem;
   border-radius: 0.8rem;
   border: 2px solid var(--fifth-color);
@@ -309,32 +309,29 @@ nav a:hover {
   color: var(--text-color);
   width: 100%;
   margin: auto;
+}
 
-  
- }
-
- label {
+label {
   font-weight: 400;
- }
+}
 
- .form-sign-up-link {
+.form-sign-up-link {
   color: var(--primary-color);
- }
+}
 
- .login-form-text {
+.login-form-text {
   font-weight: 500;
- }
+}
 
- .login-button {
+.login-button {
   width: 70%;
   height: 14%;
   border-radius: 1rem;
-  
- }
+  cursor: pointer;
+}
 
-
- .create-letter-form {
-    display: flex;
+.create-letter-form {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
@@ -345,8 +342,7 @@ nav a:hover {
   height: 20rem;
   padding: 1rem;
   border-radius: 2rem;
- }
-
+}
 
 .send-letter-button {
   width: 70%;
@@ -360,10 +356,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
-  
 }
-
-
 
 .text {
   color: var(--text-color);
@@ -372,8 +365,7 @@ nav a:hover {
   width: 100%;
   border-radius: 1rem;
   background-color: var(--fifth-color);
-  border : 2px solid var(--fifth-color);
-
+  border: 2px solid var(--fifth-color);
 }
 
 .membership-form {
@@ -389,7 +381,6 @@ nav a:hover {
   background-color: var(--fourth-color);
   margin-top: 7rem;
 }
-
 
 .new-letter-heading {
   font-weight: 400;
@@ -419,7 +410,6 @@ nav a:hover {
   width: 20rem;
 }
 
-
 .sign-up-heading {
   font-weight: 400;
 }
@@ -438,7 +428,6 @@ nav a:hover {
 
 .signup-form input {
   background-color: var(--fifth-color);
-  
 }
 
 .signup-form-div {
@@ -449,7 +438,7 @@ nav a:hover {
 }
 
 #is-admin {
-  height: 2rem
+  height: 2rem;
 }
 
 .is-admin-div {
@@ -473,171 +462,181 @@ nav a:hover {
   height: 3rem;
 }
 
-
-
 .signup-button {
   width: 50%;
   height: 3.5rem;
   border-radius: 1rem;
+  cursor: pointer;
 }
-
+/* 
 .admin-password-div {
   display: none;
-}
-
+} */
 
 /* mobile media query */
 
 @media (max-width: 480px) {
-    .welcome-div {
-      margin: 1rem;
-    }
+  .welcome-div {
+    margin: 1rem;
+  }
 
-    .welcome-heading {
-      font-size: 1.3rem;
-    }
+  .welcome-heading {
+    font-size: 1.3rem;
+  }
 
-    .heading-and-buttons-hero-section {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      margin: 1rem;
-      margin-top: 2.5rem;
-    }
+  .heading-and-buttons-hero-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    margin-top: 2.5rem;
+  }
 
+  .main-heading {
+    text-align: start;
+    font-size: 1.9rem;
+    width: 100%;
+  }
 
-    .main-heading {
-      /* text-align:center; */
-      font-size: 1.9rem;
-      width: 100%;
-    }
+  .secondary-heading {
+    font-size: 1.2rem;
+    font-weight: 200;
+    width: 100%;
+    text-align: start;
+  }
 
-    .secondary-heading {
-      font-size: 1.2rem;
-      font-weight: 200;
-      width: 100%;
-      /* text-align: center; */
-    }
-    
-    .letters-container {
-      padding: 1rem;
-      margin: auto;
-      width: 100%;
-      /* border: 2px solid red; */
-    }
-    .letter-instance {
-      gap: 1rem;
-      width: 100%;
-      height: fit-content;
-    }
+  .letters-container {
+    padding: 1rem;
+    margin: auto;
+    width: 100%;
+    /* border: 2px solid red; */
+  }
+  .letter-instance {
+    gap: 1rem;
+    width: 100%;
+    height: fit-content;
+  }
 
-    .hero-buttons {
-      flex-direction: column;
-    }
+  .hero-buttons {
+    flex-direction: column;
+  }
 
-    .create-letter-button,.join-membership-button {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
+  .create-letter-button,
+  .join-membership-button {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 
-    .create-letter-form,.membership-form,.signup-form,.login-form {
-      margin-top: 10rem;
-      width: 90%;
-    }
+  .create-letter-form,
+  .membership-form,
+  .signup-form,
+  .login-form {
+    margin-top: 10rem;
+    width: 90%;
+  }
 
-    .create-letter-form-div,.membership-form-div ,.signup-form-div,.form-div{
-      width: 90%;
-    }
+  .create-letter-form-div,
+  .membership-form-div,
+  .signup-form-div,
+  .form-div {
+    width: 90%;
+  }
 
-    .signup-form {
-      margin-top:  5rem;
-    }
-    
+  .signup-form {
+    margin-top: 5rem;
+  }
 }
-
 
 /* //tablet media query */
 
 @media (max-width: 900px) and (orientation: portrait) {
-
-
-  .welcome-heading,.heading-and-buttons-hero-section {
+  .welcome-heading,
+  .heading-and-buttons-hero-section {
     margin: 1rem;
     text-align: center;
   }
 
-        .letters-container {
-      padding: 1.5rem;
-      margin: auto;
-      width: 100%;
+  .letters-container {
+    padding: 1.5rem;
+    margin: auto;
+    width: 100%;
+  }
+  .letter-instance {
+    gap: 1rem;
+    width: 100%;
+    height: fit-content;
+  }
 
-    }
-    .letter-instance {
-      gap: 1rem;
-      width: 100%;
-      height: fit-content;
-    }
+  .create-letter-button,
+  .join-membership-button {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 
-     .create-letter-button,.join-membership-button {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
+  .create-letter-form,
+  .membership-form,
+  .signup-form,
+  .login-form {
+    margin-top: 10rem;
+    width: 90%;
+  }
 
-    .create-letter-form,.membership-form,.signup-form,.login-form {
-      margin-top: 10rem;
-      width: 90%;
-    }
+  .create-letter-form-div,
+  .membership-form-div,
+  .signup-form-div,
+  .form-div {
+    width: 90%;
+  }
 
-    .create-letter-form-div,.membership-form-div ,.signup-form-div,.form-div{
-      width: 90%;
-    }
-
-    .signup-form {
-      margin-top:  5rem;
-    }
-} 
-
-
+  .signup-form {
+    margin-top: 5rem;
+  }
+}
 
 @media (max-width: 1024px) and (orientation: landscape) {
-
-
-  .welcome-heading,.heading-and-buttons-hero-section {
+  .welcome-heading,
+  .heading-and-buttons-hero-section {
     margin: 1rem;
     text-align: center;
   }
 
-        .letters-container {
-      padding: 1.5rem;
-      margin: auto;
-      width: 100%;
+  .letters-container {
+    padding: 1.5rem;
+    margin: auto;
+    width: 100%;
+  }
+  .letter-instance {
+    gap: 1rem;
+    width: 80%;
+    height: fit-content;
+  }
 
-    }
-    .letter-instance {
-      gap: 1rem;
-      width: 80%;
-      height: fit-content;
-    }
+  .create-letter-button,
+  .join-membership-button {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+  }
 
-     .create-letter-button,.join-membership-button {
-      display: flex;
-      justify-content: center;
-      gap: 0.5rem;
-    }
+  .create-letter-form,
+  .membership-form,
+  .signup-form,
+  .login-form {
+    margin-top: 10rem;
+    width: 70%;
+  }
 
-    .create-letter-form,.membership-form,.signup-form,.login-form {
-      margin-top: 10rem;
-      width: 70%;
-    }
+  .create-letter-form-div,
+  .membership-form-div,
+  .signup-form-div,
+  .form-div {
+    width: 90%;
+  }
 
-    .create-letter-form-div,.membership-form-div ,.signup-form-div,.form-div{
-      width: 90%;
-    }
-
-    .signup-form {
-      margin-top:  5rem;
-    }
-} 
+  .signup-form {
+    margin-top: 5rem;
+  }
+}
