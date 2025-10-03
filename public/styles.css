@@ -15,6 +15,8 @@
   }
 }
 
+
+
 body {
   /* 4. Add accessible line-height */
   line-height: 1.5;
@@ -446,11 +448,32 @@ nav a:hover {
   width: 90%;
 }
 
-.is-admin-div {
-  justify-content: flex-start;
-  align-items: flex-start;
-  border: 2px solid peachpuff;
+#is-admin {
+  height: 2rem
 }
+
+.is-admin-div {
+  gap: 0;
+  flex-direction: row;
+  /* border: 2px solid red; */
+}
+
+.is-admin-label {
+  /* border: 2px solid yellow; */
+  width: 70%;
+}
+
+.inner-is-admin-div {
+  align-items: center;
+  /* border: 2px solid green; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 60%;
+  height: 3rem;
+}
+
+
 
 .signup-button {
   width: 50%;

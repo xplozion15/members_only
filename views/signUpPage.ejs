@@ -31,8 +31,10 @@
       </div>
 
       <div class="signup-form-div is-admin-div">
-        <label for="is-admin">Is admin?</label>
-        <input type="checkbox" name="is_admin" id="is_admin" />
+        <div class="inner-is-admin-div">
+          <label for="is-admin" class="is-admin-label">Is admin?</label>
+        <input type="checkbox" name="is-admin" id="is-admin" />
+        </div>
       </div>
       <%- include("partials/errors.ejs") %>
         <button type="submit" class="signup-button"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
@@ -45,7 +47,7 @@
     </form>
 
     <script>
-  const isAdmin = document.querySelector("#is_admin"); 
+  const isAdmin = document.querySelector("#is-admin"); 
   const adminPasswordDiv = document.querySelector(".admin-password-div");
 
   isAdmin.addEventListener("change", () => {
