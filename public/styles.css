@@ -461,3 +461,160 @@ nav a:hover {
 .admin-password-div {
   display: none;
 }
+
+
+/* mobile media query */
+
+@media (max-width: 480px) {
+    .welcome-div {
+      margin: 1rem;
+    }
+
+    .welcome-heading {
+      font-size: 1.3rem;
+    }
+
+    .heading-and-buttons-hero-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 1rem;
+      margin-top: 2.5rem;
+    }
+
+
+    .main-heading {
+      /* text-align:center; */
+      font-size: 1.9rem;
+      width: 100%;
+    }
+
+    .secondary-heading {
+      font-size: 1.2rem;
+      font-weight: 200;
+      width: 100%;
+      /* text-align: center; */
+    }
+    
+    .letters-container {
+      padding: 1rem;
+      margin: auto;
+      width: 100%;
+      /* border: 2px solid red; */
+    }
+    .letter-instance {
+      gap: 1rem;
+      width: 100%;
+      height: fit-content;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+    }
+
+    .create-letter-button,.join-membership-button {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .create-letter-form,.membership-form,.signup-form,.login-form {
+      margin-top: 10rem;
+      width: 90%;
+    }
+
+    .create-letter-form-div,.membership-form-div ,.signup-form-div,.form-div{
+      width: 90%;
+    }
+
+    .signup-form {
+      margin-top:  5rem;
+    }
+    
+}
+
+
+/* //tablet media query */
+
+@media (max-width: 900px) and (orientation: portrait) {
+
+
+  .welcome-heading,.heading-and-buttons-hero-section {
+    margin: 1rem;
+    text-align: center;
+  }
+
+        .letters-container {
+      padding: 1.5rem;
+      margin: auto;
+      width: 100%;
+
+    }
+    .letter-instance {
+      gap: 1rem;
+      width: 100%;
+      height: fit-content;
+    }
+
+     .create-letter-button,.join-membership-button {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .create-letter-form,.membership-form,.signup-form,.login-form {
+      margin-top: 10rem;
+      width: 90%;
+    }
+
+    .create-letter-form-div,.membership-form-div ,.signup-form-div,.form-div{
+      width: 90%;
+    }
+
+    .signup-form {
+      margin-top:  5rem;
+    }
+} 
+
+
+
+@media (max-width: 1024px) and (orientation: landscape) {
+
+
+  .welcome-heading,.heading-and-buttons-hero-section {
+    margin: 1rem;
+    text-align: center;
+  }
+
+        .letters-container {
+      padding: 1.5rem;
+      margin: auto;
+      width: 100%;
+
+    }
+    .letter-instance {
+      gap: 1rem;
+      width: 80%;
+      height: fit-content;
+    }
+
+     .create-letter-button,.join-membership-button {
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .create-letter-form,.membership-form,.signup-form,.login-form {
+      margin-top: 10rem;
+      width: 70%;
+    }
+
+    .create-letter-form-div,.membership-form-div ,.signup-form-div,.form-div{
+      width: 90%;
+    }
+
+    .signup-form {
+      margin-top:  5rem;
+    }
+} 
