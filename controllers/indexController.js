@@ -4,6 +4,7 @@ const dotenv = require("dotenv");
 const db = require("../db/queries");
 dotenv.config();
 const { body, validationResult } = require("express-validator");
+const e = require("connect-flash");
 
 
 
@@ -21,6 +22,7 @@ async function showIndexPage(req, res) {
 }
 
 function showSignupPage(req, res) {
+  
   res.render("signUpPage", {navbarLinks:navbarLinks});
 }
 
@@ -40,10 +42,15 @@ function showLoginPage(req, res) {
 }
 
 async function postUserToDb(req, res, next) {
+  const result = validationResult(req);
+  
   const isUserAdmin = req.body["is_admin"]; // on or off expected value from the req body through the form
   const userInputAdminPassword = req.body["admin-password"];
   const adminPassword = process.env.ADMIN_PASSWORD;
   const doesAdminPasswordMatch = userInputAdminPassword === adminPassword;
+
+  if(result.isEmpty()) {
+     
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
 
@@ -67,6 +74,13 @@ async function postUserToDb(req, res, next) {
   } catch (error) {
     return next(error);
   }
+  }
+  else {
+    res.render("signUpPage",{navbarLinks:navbarLinks,errors:result.array()})
+  }
+
+
+
 }
 
 
@@ -78,7 +92,9 @@ async function giveMembership(req, res) {
     await db.markMembershipInDb(userId);
     res.redirect("/");
   } else {
-    res.redirect("/membership-form");
+
+    res.locals.errors = ["Invalid membership password"];
+    res.render("membershipForm", {navbarLinks:navbarLinks});
   }
 }
 

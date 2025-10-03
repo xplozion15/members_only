@@ -457,3 +457,7 @@ nav a:hover {
   height: 3.5rem;
   border-radius: 1rem;
 }
+
+.admin-password-div {
+  display: none;
+}

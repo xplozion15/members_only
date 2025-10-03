@@ -2,18 +2,18 @@ const express = require("express");
 const indexRouter = express.Router();
 const indexController = require("../controllers/indexController");
 const passport = require("passport");
-const {validateUserLogin} = require("../validators/validationFunctions");
+const {validateUserLogin,validateSignUp} = require("../validators/validationFunctions");
 const { validationResult } = require("express-validator");
 const {navbarLinks} = require("../controllers/indexController")
 
 
 //get req
 indexRouter.get("/", indexController.showIndexPage);
-indexRouter.get("/sign-up", indexController.showSignupPage);
+indexRouter.get("/sign-up",validateSignUp, indexController.showSignupPage);
 indexRouter.get("/log-in", indexController.showLoginPage);
 indexRouter.get("/membership-form", indexController.showMembershipForm);
 //post req
-indexRouter.post("/sign-up", indexController.postUserToDb);
+indexRouter.post("/sign-up",validateSignUp, indexController.postUserToDb);
 
 indexRouter.post(
   "/log-in",
