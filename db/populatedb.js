@@ -31,8 +31,7 @@ CREATE TABLE IF NOT EXISTS letters (
   text VARCHAR (255),
   user_id INTEGER,
   FOREIGN KEY (user_id) REFERENCES users(id)
-);
-`;
+);`;
 
 async function main() {
   console.log("seeding...");
