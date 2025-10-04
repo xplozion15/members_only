@@ -475,7 +475,12 @@ label {
 /* mobile media query */
 
 @media (max-width: 480px) {
-
+  .welcome-div {
+    display: flex;
+    justify-content: space-between;
+    width: 90%;
+    margin: auto;
+  }
 
   .welcome-heading {
     font-size: 1.3rem;
@@ -488,7 +493,6 @@ label {
     justify-content: center;
     margin: 1rem;
     margin-top: 2.5rem;
-    border: 2px solid gray;
     width: 94%;
   }
 
