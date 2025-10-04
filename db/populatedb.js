@@ -32,16 +32,6 @@ CREATE TABLE IF NOT EXISTS letters (
   user_id INTEGER,
   FOREIGN KEY (user_id) REFERENCES users(id)
 );
-
-INSERT INTO users (username,email,password)
-    VALUES
-        ('xplozion','xplozion@gmail.com','xplozionpass'),
-        ('hal','hal@gmail.com','halpass'),
-        ('lune','lune@gmail.com','lunepass');
-
-INSERT INTO letters (text,user_id) 
-    VALUES 
-        ('hi im new here lol',1)
 `;
 
 async function main() {

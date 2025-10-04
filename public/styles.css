@@ -444,17 +444,15 @@ label {
 .is-admin-div {
   gap: 0;
   flex-direction: row;
-  /* border: 2px solid red; */
 }
 
 .is-admin-label {
-  /* border: 2px solid yellow; */
   width: 70%;
 }
 
 .inner-is-admin-div {
   align-items: center;
-  /* border: 2px solid green; */
+
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -468,10 +466,6 @@ label {
   border-radius: 1rem;
   cursor: pointer;
 }
-/* 
-.admin-password-div {
-  display: none;
-} */
 
 /* mobile media query */
 
@@ -510,7 +504,6 @@ label {
     padding: 1rem;
     margin: auto;
     width: 100%;
-    /* border: 2px solid red; */
   }
   .letter-instance {
     gap: 1rem;

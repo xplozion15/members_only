@@ -1,10 +1,11 @@
 const db = require("../db/queries");
+const { validationResult } = require("express-validator");
+
 const navbarLinks = [
   { href: "/", text: "Log in" },
   { href: "/", text: "Sign up" },
   { href: "/", text: "Log out" },
 ];
-const { validationResult } = require("express-validator");
 
 function showNewLetterForm(req, res) {
   res.render("createNewLetter", { navbarLinks: navbarLinks });

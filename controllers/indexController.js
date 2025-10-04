@@ -1,4 +1,3 @@
-const pool = require("../db/pool");
 const bcrypt = require("bcryptjs");
 const dotenv = require("dotenv");
 const db = require("../db/queries");
@@ -59,9 +58,6 @@ async function postUserToDb(req, res, next) {
           );
           res.redirect("/");
         }
-        // else {
-        //   res.send("wrong admin password bruh?");
-        // }
       }
     } catch (error) {
       return next(error);
