@@ -191,6 +191,7 @@ nav a:hover {
 }
 
 .welcome-div {
+  justify-self: start;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -224,7 +225,7 @@ nav a:hover {
   text-decoration: none;
   background-color: var(--primary-color);
   padding: 1rem;
-
+  border: 2px solid var(--primary-color);
   color: var(--text-color);
   border-radius: 1rem;
 }
@@ -328,6 +329,7 @@ label {
   height: 14%;
   border-radius: 1rem;
   cursor: pointer;
+  border: 2px solid var(--secondary-color);
 }
 
 .create-letter-form {
@@ -349,6 +351,7 @@ label {
   height: 18%;
   border-radius: 1rem;
   cursor: pointer;
+  border: 2px solid var(--secondary-color);
 }
 
 .create-letter-form-div {
@@ -401,6 +404,7 @@ label {
   width: 20rem;
   font-weight: 400;
   border-radius: 1rem;
+  border: 2px solid var(--secondary-color);
 }
 
 .membership-form-div {
@@ -465,14 +469,13 @@ label {
   height: 3.5rem;
   border-radius: 1rem;
   cursor: pointer;
+  border: 2px solid var(--secondary-color);
 }
 
 /* mobile media query */
 
 @media (max-width: 480px) {
-  .welcome-div {
-    margin: 1rem;
-  }
+
 
   .welcome-heading {
     font-size: 1.3rem;
@@ -485,6 +488,8 @@ label {
     justify-content: center;
     margin: 1rem;
     margin-top: 2.5rem;
+    border: 2px solid gray;
+    width: 94%;
   }
 
   .main-heading {
