@@ -67,7 +67,6 @@ passport.use(
 //middleware to keep track of current user.
 app.use((req, res, next) => {
   res.locals.currentUser = req.user;
-  console.log(res.locals.currentUser);
   next();
 });
 
