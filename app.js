@@ -90,6 +90,12 @@ passport.deserializeUser(async (id, done) => {
 //routes
 app.use("/", indexRouter);
 app.use("/letter", letterRouter);
+
+//error 404 route
+app.use((req, res, next) => {
+  res.status(404).send("404 Not Found");
+});
+
 app.listen(3000, (error) => {
   if (error) {
     throw error;

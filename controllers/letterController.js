@@ -8,7 +8,10 @@ const navbarLinks = [
 ];
 
 function showNewLetterForm(req, res) {
-  res.render("createNewLetter", { navbarLinks: navbarLinks });
+  if (req.user) {
+    return res.render("createNewLetter", { navbarLinks: navbarLinks });
+  }
+  res.redirect("/");
 }
 
 async function handleLetterPost(req, res) {

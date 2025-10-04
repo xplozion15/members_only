@@ -41,7 +41,7 @@ async function insertUser(username, email, hashedPassword) {
 async function insertAdminUser(username, email, hashedPassword) {
   await pool.query(
     "INSERT INTO users (username,email,password,is_member,is_admin) VALUES ($1,$2,$3,$4,$5)",
-    [username, email, hashedPassword, true,true],
+    [username, email, hashedPassword, true, true],
   );
 }
 
