@@ -197,7 +197,7 @@ nav a:hover {
 }
 
 .heading-and-buttons-hero-section {
-  width: 90%;
+  width: 100%;
   margin: auto;
   display: flex;
   align-items: center;
@@ -474,11 +474,6 @@ label {
     margin: 1rem;
   }
 
-  .logo > a {
-    font-size: 2.3rem;
-  }
-
-
   .welcome-heading {
     font-size: 1.3rem;
   }
@@ -489,8 +484,7 @@ label {
     align-items: center;
     justify-content: center;
     margin: 1rem;
-    margin-top: 1rem;
-    width: 90%;
+    margin-top: 2.5rem;
   }
 
   .main-heading {
@@ -532,7 +526,7 @@ label {
   .membership-form,
   .signup-form,
   .login-form {
-    margin-top: 6rem;
+    margin-top: 5rem;
     width: 90%;
   }
 
@@ -555,11 +549,6 @@ label {
   .heading-and-buttons-hero-section {
     margin: 1rem;
     text-align: center;
-    width: 90%;
-  }
-
-   .logo > a {
-    font-size: 2.3rem;
   }
 
   .letters-container {
@@ -584,7 +573,7 @@ label {
   .membership-form,
   .signup-form,
   .login-form {
-    margin-top: 10rem;
+    margin-top: 6rem;
     width: 90%;
   }
 
@@ -605,10 +594,6 @@ label {
   .heading-and-buttons-hero-section {
     margin: 1rem;
     text-align: center;
-  }
-
-   .logo > a {
-    font-size: 2.3rem;
   }
 
   .letters-container {
