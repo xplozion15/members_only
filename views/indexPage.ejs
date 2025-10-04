@@ -104,7 +104,7 @@
                   <%= letter["text"] %>
                 </p>
 
-                <% if (currentUser) { %>
+                <% if (currentUser && currentUser.is_member) { %>
                   <p class="letter-time" data-timestamp="<%= letter['timestamp'] %>"></p>
 
                   <% } else { %>
